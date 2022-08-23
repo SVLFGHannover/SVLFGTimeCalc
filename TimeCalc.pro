@@ -18,6 +18,14 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+#ifdef Q_OS_DARWIN
+ICON = timecalc.icns
+#elif defined(Q_OS_WIN)
+RC_ICONS = timecalc.ico
+#else
+#error "Is not supported!"
+#endif
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

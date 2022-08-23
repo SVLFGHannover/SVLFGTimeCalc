@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "QtWidgets/qlineedit.h"
 #include <QMainWindow>
 #include <QDate>
 
@@ -39,6 +40,18 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_checkBoxAll_stateChanged(int arg1);
+
+    void on_checkBox1_stateChanged(int arg1);
+
+    void on_checkBox2_stateChanged(int arg1);
+
+    void on_checkBox3_stateChanged(int arg1);
+
+    void on_checkBox4_stateChanged(int arg1);
+
+    void on_checkBox5_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     QString appAuthor = "fz";
@@ -51,6 +64,12 @@ private:
     QTime ms3,me3,mz3;
     QTime ms4,me4,mz4;
     QTime ms5,me5,mz5;
+
+    bool isPositive1;
+    bool isPositive2;
+    bool isPositive3;
+    bool isPositive4;
+    bool isPositive5;
 
     QPalette falseS1Palette;
     QPalette rightS1Palette;
@@ -72,7 +91,9 @@ private:
     QPalette rightS5Palette;
     QPalette falseE5Palette;
     QPalette rightE5Palette;
+    void initialization();
     QTime validate(QString,bool*);
     void calcDiff();
+    void diffTime(QTime, QTime, QTime *m, bool *mSign, QLineEdit *z);
 };
 #endif // MAINWINDOW_H
