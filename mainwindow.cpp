@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->statusbar->showMessage(appTitle + " " + appVersion + " " + appDate + " by " + appAuthor);
+    ui->statusbar->showMessage(appTitle + " " + appVersion + " from " + appDate + " by " + appAuthor);
 
     initialization();
     on_pushButton_clicked();
@@ -277,6 +277,7 @@ void MainWindow::diffTime(QTime d1, QTime d2, QTime *m, bool *mSign, QLineEdit *
     QString plus = "hh:mm";
     QString minus = "-hh:mm";
     QString fmt = plus;
+    *mSign = true;
     if((d1.isValid() && d2.isValid()) ){
         seconds = d1.secsTo(d2);
     }else{
@@ -286,7 +287,7 @@ void MainWindow::diffTime(QTime d1, QTime d2, QTime *m, bool *mSign, QLineEdit *
         fmt=minus;
         seconds = -seconds;
         *mSign = false;
-    };
+    }
     minutes  = seconds / 60;
     seconds         = seconds % 60;
     hours    = minutes / 60;

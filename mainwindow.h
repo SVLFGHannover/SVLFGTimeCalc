@@ -56,8 +56,8 @@ private:
     Ui::MainWindow *ui;
     QString appAuthor = "fz";
     QString appTitle = "TimeCalc";
-    QString appVersion = "1.0";
-    QString appDate = QDate::currentDate().toString();
+    QString appVersion = "1.0.1";
+    QString appDate = QDate::currentDate().toString("d.M.yy");
 
     QTime ms1,me1,mz1;
     QTime ms2,me2,mz2;
